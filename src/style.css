@@ -193,9 +193,10 @@ label{
 .container-curious-data{
   border-radius: 5px;
   background-color: rgba(0, 78, 73, 0.3);
-  height: 280px; 
+  height: auto; 
   width: 80%;
   padding-top: 2%;
+  text-align: center;
 
 }
 
@@ -209,6 +210,10 @@ label{
   color: white; 
 
 
+}
+
+#graphicgoogle{
+  margin-left: 200px;
 }
 
 .row-curious-data{
@@ -229,14 +234,6 @@ label{
   line-height: 35px;
 }
 
-.background-kanto{ 
-  background-image: url(https://i.ibb.co/L6FW1kk/7edb4c36883633-572ca19d1da8f.png);
-  background-size: 300px 300px;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 2%;
-
-}
 
 .background-clock{
   background-image: url(https://i.ibb.co/M56gPXD/pokemonnn.png);
@@ -245,13 +242,12 @@ label{
   background-repeat: no-repeat;
   padding: 2%;
 }
-.background-types{
-  background-image: url(https://usercontent2.hubstatic.com/12297909.png);
-  background-size: 280px 280px;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 2%;
+
+#chart_div{
+  margin: none;
+  text-align: center;
 }
+
 
 .banner-image{
 

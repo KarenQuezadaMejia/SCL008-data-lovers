@@ -106,12 +106,9 @@ let thirdCuriousData = '\
                               <option value="Ground"> Ground</option>\
                             </select>\
                           </div>\
-                        <div class="row row-curious-data">\
-                        <div class="col-4 background-kanto">\
-                          </div>\
-                           <div class="col-6 container-curious-data">\
-                            <p class="title-curious-data">DATOS CURIOSOS DE POKÉMONES DE LA REGIÓN KANTO</p>\
-                             <div id="chart_div" class="my-4-curious"></div>\
+                        <div class="row row-curious-data" id="graphicgoogle">\
+                           <div class="col-12 container-curious-data">\
+                             <div id="chart_div" ></div>\
                           </div>\
                         </div>\
                         </div>';
@@ -276,8 +273,10 @@ curiousBtn.addEventListener('click', () =>{
         // Set chart options
         var options = {
                        
-                       'width':500,
-                       'height':400,
+                       'width':600,
+                       'height':500,
+                       'text-align':'center',
+                       'margin':'none',
                        'backgroundColor': 'transparent',
                      };
 
