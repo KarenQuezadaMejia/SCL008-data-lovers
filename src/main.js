@@ -82,18 +82,9 @@ let secondScreen = '\
                     </div>';
 let thirdCuriousData = '\
                         <div class="row row-curious-data">\
-                        <div class="col-4 background-kanto">\
-                          </div>\
-                           <div class="col-7 container-curious-data">\
-                            <p class="title-curious-data">DATOS CURIOSOS DE POKÉMONES DE LA REGIÓN KANTO</p>\
-                            <hr class="my-4-curious">\
-                            <p class="subtititle-curious">Aquí encontrarás estadisticas sobre tipo y peso de tus pokémones preferidos, conocer esta información te hará el mas culto maestro pokémon!</p>\
-                          </div>\
-                        </div>\
-                        <div class="row row-curious-data">\
                           <div class="col-4 background-clock" id="percent">\
                           </div>\
-                          <div class="col-7 container-curious-data">\
+                          <div class="col-6 container-curious-data">\
                             <p class="title-curious-data">¿Quieres saber que porcentaje de pokémon según su tipo hay en la región Kanto?</p>\
                             <hr class="my-4-curious">\
                             <label for="exampleFormControlSelect1">Seleccione el tipo de Pokémon:</label>\
@@ -115,6 +106,14 @@ let thirdCuriousData = '\
                               <option value="Ground"> Ground</option>\
                             </select>\
                           </div>\
+                        <div class="row row-curious-data">\
+                        <div class="col-4 background-kanto">\
+                          </div>\
+                           <div class="col-6 container-curious-data">\
+                            <p class="title-curious-data">DATOS CURIOSOS DE POKÉMONES DE LA REGIÓN KANTO</p>\
+                             <div id="chart_div" class="my-4-curious"></div>\
+                          </div>\
+                        </div>\
                         </div>';
 
 
@@ -253,6 +252,41 @@ curiousBtn.addEventListener('click', () =>{
     result = window.data.computeStats(pokemonData, valueSelect);
     document.getElementById('percent').innerHTML= '<p class="percent">'+result+'</p>\
                                                     <p class="text-percent"> de tipo '+valueSelect+'</p>';
+
+    google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          [valueSelect, result],
+          ['Otros', 151-result],
+      
+        ]);
+
+        // Set chart options
+        var options = {
+                       
+                       'width':500,
+                       'height':400,
+                       'backgroundColor': 'transparent',
+                     };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+
+
   });
 });
 
